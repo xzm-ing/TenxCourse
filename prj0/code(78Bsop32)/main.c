@@ -5,18 +5,15 @@ void main() {
   SysInit();
   VarsInit();
   F_ledOn();
-  DelayMs(500);
-  //使能看门狗
-  F_turnOnWDT();
+  delayMs(500);
   while (1) {
     //喂狗
-    F_clearWDT();
+    // F_turnOnWDT();
     // user coding
     // F_ledOff();
     // delayMs(500);
     // F_ledOn();
     // delayMs(500);
-    // delayMs(5);
     GetKeys();
     if (D_keyValue1 == keyValue) {
       F_ledNeg();
@@ -25,12 +22,12 @@ void main() {
   }
 }
 //=============================================================================
-void DelayMs(uint16_t msCount) {
+void delayMs(uint16_t msCount) {
   uint16_t i, j;
   for (i = 0; i < msCount; i++) {
     for (j = 0; j < 1000; j++) {
       /* code */
-      F_clearWDT();
+      // F_turnOnWDT();
     }
   }
 }
